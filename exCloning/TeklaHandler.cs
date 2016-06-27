@@ -50,5 +50,18 @@ namespace exCloning
 
             return selectedAssemblys;
         }
+
+        public static List<TSM.Reinforcement> getReinforcements(TSM.Part part)
+        {
+            List<TSM.Reinforcement> reinf = new List<TSM.Reinforcement>();
+            TSM.ModelObjectEnumerator reinforcementEnum = part.GetReinforcements();
+
+            while (reinforcementEnum.MoveNext())
+            {
+                reinf.Add(reinforcementEnum.Current as TSM.Reinforcement);
+            }
+
+            return reinf;
+        }
     }
 }
