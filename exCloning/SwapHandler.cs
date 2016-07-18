@@ -19,6 +19,18 @@ namespace exCloning
         {
             List<TSM.Reinforcement> oldReinf = TeklaHandler.getReinforcements(part);
 
+            swapHandlesChooser(part);
+            swapEndForces(part);
+            swapOffsetPlanes(part);
+            swapTopInForm(part);
+            part.Modify();
+
+            List<TSM.Reinforcement> newReinf = TeklaHandler.getReinforcements(part);
+            restoreReinforcement(oldReinf, newReinf);
+        }
+
+        private static void swapHandlesChooser(TSM.Part part)
+        {
             if (part is TSM.Beam)
             {
                 TSM.Beam beam = part as TSM.Beam;
@@ -36,17 +48,6 @@ namespace exCloning
             }
 
             part.Modify();
-
-            swapEndForces(part);
-            swapOffsetPlanes(part);
-            swapTopInForm(part);
-
-            part.Modify();
-
-            List<TSM.Reinforcement> newReinf = TeklaHandler.getReinforcements(part);
-            restoreReinforcement(oldReinf, newReinf);
-
-            new TSM.Model().CommitChanges();
         }
 
         private static void swapBeam(TSM.Beam part)
@@ -143,6 +144,14 @@ namespace exCloning
             else if (topInForm == (int)TopInFormEnum.END)
             {
                 part.SetUserProperty("FixedMainView", (int)TopInFormEnum.START);
+            }
+            else if (topInForm == (int)TopInFormEnum.TOP)
+            {
+                part.SetUserProperty("FixedMainView", (int)TopInFormEnum.BOTTOM);
+            }
+            else if (topInForm == (int)TopInFormEnum.BOTTOM)
+            {
+                part.SetUserProperty("FixedMainView", (int)TopInFormEnum.TOP);
             }
         }
 

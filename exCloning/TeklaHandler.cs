@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,18 @@ namespace exCloning
             }
 
             return reinf;
+        }
+
+        public static void selectAssemblys(List<_Assembly> filtered)
+        {
+            ArrayList selection = new ArrayList();
+            foreach (_Assembly current in filtered)
+            {
+                selection.Add(current._assembly);
+            }
+
+            TSM.UI.ModelObjectSelector modelSelector = new TSM.UI.ModelObjectSelector();
+            modelSelector.Select(selection);
         }
     }
 }

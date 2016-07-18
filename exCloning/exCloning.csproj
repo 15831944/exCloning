@@ -64,7 +64,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stuff2.cs" />
+    <Compile Include="SwapMainLoop.cs" />
     <Compile Include="SwapHandler.cs" />
     <Compile Include="TeklaHandler.cs" />
     <Compile Include="_Assembly.cs" />

@@ -8,7 +8,6 @@ namespace exCloning
 {
     public enum TopInFormEnum
     {
-        TOP = 0, BACK, BOTTOM, START, END, FRONT, NOT_SET
+        TOP = 0, BACK, BOTTOM, START, END, FRONT, NOT_SET, ALL
     }
-
 }
