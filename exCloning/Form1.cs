@@ -34,6 +34,8 @@ namespace exCloning
 
         private void btn_getSelected_Click(object sender, EventArgs e)
         {
+            txt_report.Text = "";
+
             try
             {
                 getSelected();
